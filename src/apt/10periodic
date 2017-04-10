@@ -1,0 +1,5 @@
+YUM::Periodic::Update-Package-Lists "1";
+YUM::Periodic::Download-Upgradeable-Packages "1";
+YUM::Periodic::AutocleanInterval "7";
+YUM::Periodic::Unattended-Upgrade "1";
+

@@ -1,0 +1,52 @@
+---
+- name: Update
+  yum:
+    name: '*'
+    state: latest
+    
+- name: Install NTP
+  yum:
+    name: ntp
+    state: latest
+
+- shell: systemctl enable ntpd
+
+- name: TCP settings
+  copy: src=./src/sysctl.conf.j2 dest=/etc/sysctl.conf
+
+- shell: sysctl -p /etc/sysctl/sysctl.conf
+
+#- name: Update all packages
+#  yum:
+#    update_cache: yes
+#    upgrade: safe
+#    autoremove: yes
+#- name: Update
+#  yum:
+#    name: '*'
+#    state: latest
+    
+#- name: Install essential packages
+ # yum:
+ #   name: "{{ item }}"
+ #   update_cache: yes
+ #   cache_valid_time: 3600
+ #   state: latest
+ # with_items:
+ #   - unattended-upgrades
+ #   - git
+ #   - ntp
+
+#- name: Enable unattended upgrades
+#  copy:
+#    src: ./src/apt/10periodic
+#    dest: /etc/apt/apt.conf.d/10periodic
+#    owner: root
+#    group: root
+#    mode: 0644
+
+#- name: Ensure ntp starts on a fresh reboot
+#  service:
+#    name: ntp
+#    state: started
+#    enabled: yes

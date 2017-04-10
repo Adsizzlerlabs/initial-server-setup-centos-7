@@ -1,0 +1,40 @@
+---
+- name: Install fail2ban
+  yum:
+    name: fail2ban
+    state: present
+    update_cache: yes
+#    cache_valid_time: 3600
+
+
+- name: Copy fail2ban log file
+  copy:
+    src: ./src/fail2ban/fail2ban.log
+    dest: /var/log/fail2ban.log
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Copy Auth log file
+  copy:
+    src: ./src/fail2ban/auth.log
+    dest: /var/log/auth.log
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Copy custom fail2ban config
+  copy:
+    src: ./src/fail2ban/jail.local
+    dest: /etc/fail2ban/jail.local
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart fail2ban
+
+- name: Ensure fail2ban starts on a fresh reboot
+#  service:
+#    name: fail2ban
+#    state: started
+#    enabled: yes
+- command: systemctl enable fail2ban

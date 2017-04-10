@@ -1,0 +1,15 @@
+---
+  user: anky
+  password: $6$kgX6rY4/$Et8DbriTsqNZpWGVCSSibUnCadVknfN8.1XXr1MCdkvEbnfS6x7xfYYSghbH7uS.JIXzIy./
+  public_key: ~/.ssh/id_rsa.pub
+
+  fqdn: host.example.com
+  hostname: host
+  timezone: "Asia/Kolkata"
+  ssh_port: 
+
+  enable_newrelic: yes
+  newrelic_license_key: newrelic_license_key
+  enable_custom_shell: yes
+  
+  

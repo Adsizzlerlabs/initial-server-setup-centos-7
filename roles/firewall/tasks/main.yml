@@ -1,0 +1,14 @@
+- shell: systemctl start firewalld.service
+- shell: firewall-cmd --permanent --set-default-zone=public
+- shell: firewall-cmd --permanent --zone=public --change-interface=eth0
+##Add Service
+- shell: firewall-cmd --permanent --add-service=http
+- shell: firewall-cmd --permanent --add-service=https
+# #Remove unwanted Services
+- shell: firewall-cmd --permanent --remove-service=ssh
+- shell: firewall-cmd --permanent --remove-service=samba-client
+- shell: firewall-cmd --permanent --remove-service=mdns
+- shell: firewall-cmd --permanent --remove-service=dhcpv6-client
+# Office IP/ Home IP
+- shell: firewall-cmd --permanent --zone=public --add-rich-rule 'rule family="ipv4" source address={allowed_ip} accept'
+

@@ -1,0 +1,5 @@
+# Add hosts here, one per line. Additional groups can be created using
+# [group] syntax. Hosts can join multiple groups.
+
+[centos]
+192.168.132.48
