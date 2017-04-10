@@ -80,3 +80,5 @@ Add your server's IP address to the **_hosts_** file
 Then run the playbook:
 
 `$ ansible-playbook initial_server_setup.yml --ask-pass`
+
+This repository inspired by https://github.com/lukeharvey/ansible-initial-server-setup
