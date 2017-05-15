@@ -42,7 +42,7 @@
     state: enabled
 
 - name: rich rule
-  command: firewall-cmd --permanent --zone=public --add-rich-rule='rule family="ipv4" source address="103.54.24.110/32" accept'
+  command: firewall-cmd --permanent --zone=public --add-rich-rule='rule family="ipv4" source address="{allowed_ip}/32" accept'
 - name: remove ssh
   command: firewall-cmd --zone=public --permanent --remove-service=ssh
 - name: remove dhcpv6-client

@@ -11,5 +11,6 @@
   enable_newrelic: yes
   newrelic_license_key: newrelic_license_key
   enable_custom_shell: yes
+  allowed_ip: 192.168.1.1
   
   
